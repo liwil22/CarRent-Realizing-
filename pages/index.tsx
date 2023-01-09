@@ -14,6 +14,7 @@ import ClockIcon from "../components/svgs/clock-icon";
 import FilterIcon from "../components/svgs/filter-icon";
 import StatusIcon from "../components/svgs/status-icon";
 import { liveCars } from "../datas/live-car";
+import EarningSummary from "../components/index/earning-summary";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -131,7 +132,7 @@ export default function Home() {
         </Card>
       </div>
 
-      <div className="flex flex-1 flex-col space-y-5 p-7">
+      <div className="flex flex-1 flex-col space-y-5 p-7 overflow-y-auto">
         {/* Notificaiton and Search bar */}
         <div className="flex flex-row justify-end space-x-10">
           <button>
@@ -219,11 +220,11 @@ export default function Home() {
         {/* live status */}
         <Card className="px-6 pt-8 pb-10">
           <div className="flex flex-row items-center justify-between">
-          <h4 className="text-black"> Live Car Status </h4>
-          <button className="flex items-center px-4 py-2 text-gray-02 mr-10">
-            <FilterIcon className="mr-2"/>
-            Filter
-          </button>
+            <h4 className="text-black"> Live Car Status </h4>
+            <button className="flex items-center px-4 py-2 text-gray-02 mr-10">
+              <FilterIcon className="mr-2"/>
+              Filter
+            </button>
           </div>
           
           <table className="table-auto w-full" cellPadding={1}>
@@ -276,23 +277,7 @@ export default function Home() {
         </Card>
 
         {/* Earning Summary */}
-        <Card className="px-6 pt-8 pb-10">
-          <div className="flex flex-row items-center">
-            <h4 className="text-black">Earning Summary</h4>
-            <select className="pp5 ml-8">
-              <option>Mar 2022 - Oct 2022</option>
-            </select>
-            <div className="flex flex-row items-center space-x-2 ml-auto">
-              <div className="h-[10px] w-[10px] rounded-full bg-primary"></div>
-              <p className="p5 text-gray-02">Last 6 months</p>
-            </div>
-            <div className="flex flex-row items-center space-x-2 ml-8">
-              <div className="h-[10px] w-[10px] rounded-full bg-gray-02"></div>
-              <p className="p5 text-gray-02">Same period last year</p>
-            </div>
-          </div>
-          
-        </Card>
+        <EarningSummary/>
 
       </div>
     </Layout>
